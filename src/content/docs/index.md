@@ -1,0 +1,19 @@
+---
+title: Introduksjon
+description: Introduksjon til Git
+sidebar:
+  # Set a custom order for the link (lower numbers are displayed higher up)
+  order: 0
+---
+
+Bli kjent med Git: Et nøkkelverktøy i teknologiens verden
+
+Velkommen! Visste du at din reise gjennom læring og mestring av Git kan være en solid investering mot din fremtidige karriere? Ja, Git er så viktig i arbeidslivet!
+
+Git er ikke bare en plattform for versjonskontroll. Det er en essensiell ferdighet som brukes hver dag av millioner av utviklere. Fra å holde styr på endringene dine, til samarbeid på prosjekter, tilbyr Git de verktøyene du trenger for å bli en effektiv og organisert utvikler.
+
+Og det stopper ikke der. Din GitHub-profil kan fungere som din levende CV, et vindu der fremtidige arbeidsgivere kan se din progresjon, dine bidrag og evnen til å samarbeide med andre. Å opparbeide seg gode vaner med Git og GitHub tidlig kan virkelig skille deg ut i arbeidsmarkedet.
+
+Denne tjenesten er designet for å ta deg trinnvis gjennom viktige Git-konsepter, operasjoner og beste praksis. Uansett om du er helt fersk eller allerede har litt erfaring, vil du få nye innsikter som kan hjelpe deg med å bedre håndtere dine fremtidige prosjekter.
+
+Bli med oss på denne reisen gjennom Git-verdenen og ta kontroll over din kodehistorikk. Det er en ferdighet du vil ha stor nytte av i din karriere, så la oss komme i gang!

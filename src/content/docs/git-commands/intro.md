@@ -1,0 +1,19 @@
+---
+title: "Introduksjon"
+sidebar:
+  order: 1
+---
+
+# Git operasjoner
+
+Vi styrer git med kommandoer. Det kan gjøres gjennom terminalen, eller gjennom et GUI-verktøy som for eksempel GitHub Desktop. I denne guiden vil vi fokusere på terminalen. En fordel med å bruke terminalen er at det er likt for alle maskiner og oppsett, og man blir bedre kjent med terminalen.
+
+## De viktigste operasjonene i Git
+
+- **git init** - Initialiserer et nytt git-prosjekt.
+- **git clone** - Klone et eksisterende git-prosjekt fra en ekstern server.
+- **git status** - Sjekke statusen til git-prosjektet.
+- **git add** - Legge til filer i staging-nivået.
+- **git commit** - Lagre endringer i git-historikken.
+- **git push** - Flytte endringer fra local repository til remote repository.
+- **git pull** - Hente endringer fra remote repository til local repository.
