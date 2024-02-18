@@ -1,3 +1,8 @@
+---
+layout: "../layouts/Layout.astro"
+title: "Git nivåer"
+---
+
 # Git operasjoner
 
 Vi styrer git med kommandoer. Det kan gjøres gjennom terminalen, eller gjennom et GUI-verktøy som for eksempel GitHub Desktop. I denne guiden vil vi fokusere på terminalen. En fordel med å bruke terminalen er at det er likt for alle maskiner og oppsett, og man blir bedre kjent med terminalen.
