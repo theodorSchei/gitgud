@@ -1,0 +1,47 @@
+---
+interface Props {
+  question: string;
+  correct: string;
+  wrong1: string;
+  wrong2: string;
+}
+
+const { question, correct, wrong1, wrong2 } = Astro.props;
+
+const randomOrder = [correct, wrong1, wrong2];
+---
+
+<h3>Test deg selv!</h3>
+<p>{question}</p>
+<div class="answers">
+  {
+    randomOrder.map((option) => {
+      const isCorrect = option == correct;
+
+      return (
+        <button class="option">
+          <p>{option}</p>
+        </button>
+      );
+    })
+  }
+</div>
+
+<style>
+  .answers {
+    display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 1rem;
+  }
+
+  .option {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+    height: fit-content;
+    /* border: 1px white solid; */
+		/* border-radius: 2rem; */
+		margin-top: 1rem;
+		padding: 1rem;
+  }
+</style>
