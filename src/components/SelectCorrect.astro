@@ -7,41 +7,104 @@ interface Props {
 }
 
 const { question, correct, wrong1, wrong2 } = Astro.props;
+const answers = [correct, wrong1, wrong2];
 
-const randomOrder = [correct, wrong1, wrong2];
+// Randomize order
+for (let i = answers.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [answers[i], answers[j]] = [answers[j], answers[i]];
+}
 ---
 
-<h3>Test deg selv!</h3>
-<p>{question}</p>
-<div class="answers">
-  {
-    randomOrder.map((option) => {
-      const isCorrect = option == correct;
+<select-correct data-correct={correct} data-wrong1={wrong1} data-wrong2={wrong2}>
+  <h3>Test deg selv!</h3>
+  <p>{question}</p>
+  <div class="answers">
+    {
+      answers.map((option) => {
+        return (
+          <button class="option">
+            <p>{option}</p>
+          </button>
+        );
+      })
+    }
+  </div>
+  <div class="answers">
+    <button class="reveal">Vis svar</button>
+    <button class="reset">Prøv igjen</button>
+  </div>
+</select-correct>
 
-      return (
-        <button class="option">
-          <p>{option}</p>
-        </button>
-      );
-    })
+<script>
+  class Selection extends HTMLElement {
+    constructor() {
+      super();
+
+      const buttons = this.querySelectorAll('button.option');
+      const correctButton = this.dataset.correct;
+      const resetButton = this.querySelector('button.reset');
+      const revealButton = this.querySelector('button.reveal');
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+          const isCorrect = event.target.textContent.trim() === correctButton;
+          if (isCorrect) {
+						button.classList.add('correct')
+          } else {
+						button.classList.add('wrong')
+          }
+          buttons.forEach((btn) => (btn.disabled = true)); // Disable all buttons after answer
+          revealButton.disabled = true; // Disable reveal answer after choice is made
+        });
+      });
+
+      resetButton.addEventListener('click', () => {
+        buttons.forEach((btn) => {
+          btn.disabled = false; // Re-enable buttons
+          btn.classList.remove('correct', 'wrong'); // Reset classes if any
+        });
+        revealButton.disabled = false;
+      });
+
+      revealButton.addEventListener('click', () => {
+        buttons.forEach((btn) => {
+          const isCorrect = btn.textContent.trim() === correctButton;
+          btn.classList.add(isCorrect ? 'correct' : 'wrong'); // Add class based on whether the button is the correct answer
+        });
+      });
+    }
   }
-</div>
+
+  customElements.define('select-correct', Selection);
+</script>
 
 <style>
+	h3 {
+		margin-top: 2rem;
+	}
+  .correct {
+    /* styles for correct answer */
+    background-color: #538c55;
+  }
+
+  .wrong {
+    /* styles for wrong answers */
+    background-color: #c46059;
+  }
+
   .answers {
     display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
   }
 
   .option {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: fit-content;
-    /* border: 1px white solid; */
-		/* border-radius: 2rem; */
-		margin-top: 1rem;
-		padding: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
   }
 </style>
