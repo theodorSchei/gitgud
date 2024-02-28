@@ -1,17 +1,29 @@
 ---
-title: "Intro til git nivåer"
+title: 'Intro til git nivåer'
 sidebar:
   # Set a custom order for the link (lower numbers are displayed higher up)
   order: 1
 ---
 
-I Git finnes det fire forskjellige nivåer eller "stages" som filene kan være i. Når en ny fil blir lagt til må den først legges til i Git før endringene i filen kan følges. Når filen er lagt til i Git kan endringene i filen lagres i Git-historikken. Deretter kan endringene i filen lastes opp til en ekstern server.
+Git Nivåer: Ta Kontroll over din Kode
 
-## De fire nivåene
+Velkommen til din første utforskning av Git nivåer – et konsept som er fundamentalt for å forstå hvordan Git sporer og håndterer filene dine. Disse nivåene er kritiske å forstå for å kunne samarbeide nøyaktig og effektivt i prosjekter.
 
-- **Lokal arbeidsmappe / Untracked** - Filen er i lokal arbeidsmappe og er ikke lagt til i Git ennå.
-- **Staging** - Filen er lagt til og git er klar til å følge med på endringene i filen.
-- **Local repository** - Filen er lagt til i Git og er lagret i git-historikken.
-- **Remote repository** - Filen er lagret i en ekstern server.
+Når du endrer, oppretter eller manipulerer filene i et Git-prosjekt, beveger de seg gjennom fire "stages" som bestemmer hvordan Git skal håndtere dem. La oss gå gjennom disse.
 
-Det er viktig å forstå forskjellen mellom de fire nivåene for å kunne bruke Git effektivt.
+## De fire Git nivåene
+- Untracked (Usporet): Dette er den opprinnelige statusen for nye filer. Git er foreløpig ikke klar over dem og vil ikke ta vare på endringer du gjør. Tenk på dette nivået som "utenfor Git sitt radar".
+- Staged (Klargjort): Når du klargjør en fil, forteller du Git å begynne å følge den. Filen er klar for å bli en del av det neste "snapshot" eller bilde av prosjektet ditt.
+- Committed (Bekreftet): Etter å ha bekreftet, er filen sikkerhetskopiert i din lokale Git-database. Her ligger endringene dine som en del av prosjektets historie.
+- Pushed (Pushet): Å 'pushe' betyr å sende dine lokale bekreftede endringer opp til en ekstern server, som GitHub, hvor andre også kan se og samarbeide på prosjektet.
+
+Ved å navigere disse nivåene blir du tryggere i å kontrollere historikken og arbeidsflyten i dine prosjekter.
+
+import SelectCorrect from '../../../components/SelectCorrect.astro';
+
+<SelectCorrect
+  question="Hvilket av disse nivåene indikerer at du har fortalt Git å følge endringene på en fil, men endringene er enda ikke registrert som en del av prosjektets historie?"
+  correct="Staged (Klargjort)"
+  wrong1="Committed (Bekreftet)"
+  wrong2="Pushed (Pushet)"
+/>

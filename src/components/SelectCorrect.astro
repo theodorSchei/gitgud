@@ -29,10 +29,8 @@ for (let i = answers.length - 1; i > 0; i--) {
         );
       })
     }
-  </div>
-  <div class="answers">
     <button class="reveal">Vis svar</button>
-    <button class="reset">Prøv igjen</button>
+    <button class="reset" hidden="hidden">Prøv igjen</button>
   </div>
 </select-correct>
 
@@ -46,6 +44,7 @@ for (let i = answers.length - 1; i > 0; i--) {
       const correctButton = this.dataset.correct;
       const resetButton = this.querySelector('button.reset') as HTMLButtonElement;
       if (resetButton == undefined) return;
+      resetButton.hidden = true;
       const revealButton = this.querySelector('button.reveal') as HTMLButtonElement;
       if (revealButton == undefined) return;
 
@@ -60,6 +59,7 @@ for (let i = answers.length - 1; i > 0; i--) {
           }
           buttons.forEach((btn) => (btn.disabled = true)); // Disable all buttons after answer
           revealButton.disabled = true; // Disable reveal answer after choice is made
+          resetButton.hidden = true;
         });
       });
 
@@ -69,6 +69,7 @@ for (let i = answers.length - 1; i > 0; i--) {
           btn.classList.remove('correct', 'wrong'); // Reset classes if any
         });
         revealButton.disabled = false;
+        resetButton.hidden = true;
       });
 
       revealButton.addEventListener('click', () => {
@@ -76,6 +77,7 @@ for (let i = answers.length - 1; i > 0; i--) {
           const isCorrect = btn.textContent?.trim() === correctButton;
           btn.classList.add(isCorrect ? 'correct' : 'wrong'); // Add class based on whether the button is the correct answer
         });
+        resetButton.hidden = false;
       });
     }
   }
@@ -87,6 +89,7 @@ for (let i = answers.length - 1; i > 0; i--) {
   h3 {
     margin-top: 2rem;
   }
+
   .correct {
     /* styles for correct answer */
     background-color: #538c55;
@@ -100,7 +103,9 @@ for (let i = answers.length - 1; i > 0; i--) {
   .answers {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 1rem;
+    row-gap: 2rem;
   }
 
   .option {
@@ -108,7 +113,25 @@ for (let i = answers.length - 1; i > 0; i--) {
     align-items: center;
     justify-content: center;
     height: fit-content;
-    margin-top: 1rem;
+    margin-top: 0rem !important;
     padding: 1rem;
+  }
+
+  .option:disabled {
+    color: var(--sl-color-white);
+  }
+
+  .reveal,
+  .reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    margin-top: 0rem !important;
+    padding: 0.2rem;
+  }
+
+  button {
+    border-radius: 0.5rem;
   }
 </style>
