@@ -5,12 +5,29 @@ sidebar:
   order: 2
 ---
 
-Når en ny fil blir lagt til i en mappe som er en del av et Git-prosjekt, vil filen være i lokal arbeidsmappe og er ikke lagt til i Git ennå. Dette betyr at endringene i filen ikke blir fulgt av Git. For at git skal følge med på endringene i filen må filen legges til i Git.
+Når du starter arbeidet med en ny fil i et Git-prosjekt, blir du møtt av ditt første Git-nivå - "Untracked". Her, er filene dine usporet ("Untracked") og endringene du gjør er enda ikke synlige for Git.
 
-## Hvorfor trenger vi å legge til filer i Git?
+## Hvordan blir en fil sporet av Git?
 
-Man skulle kanskje tro at Git automatisk følger med på endringene i filene i prosjektet. Dette er ikke tilfelle. Git følger kun med på endringene i filene som er lagt til i Git. Dette er fordi Git er designet for å være raskt og effektivt. Hvis Git skulle følge med på alle endringene i alle filene i prosjektet, ville Git bli tregt og lite effektivt.
+Man skulle kanskje tro at Git automatisk begynner å følge med på alle dine endringer så snart du lager en ny fil. Men sannheten er at Git trenger en eksplisitt invitasjon - du må fortelle Git hvilke filer den skal bry seg om. Dette kan virke som et ekstra skritt, men det er faktisk en av grunnene til at Git er så kraftig og fleksibel.
 
-## Eksempel
+## Hvorfor legger vi til filer i Git?
 
-Se for deg at du gjør en oblig på skolen. Du har laget en fil som heter `oblig1.py`. Når du har skrevet ferdig koden og lagret filen, vil filen være i din lokale arbeidsmappe. For at Git skal følge med på endringene i filen, må filen legges til i Git.
+Å velge hvilke filer Git skal følge med på, hjelper med å opprettholde effektiviteten og hastigheten i prosjektet ditt. Hvis Git automatisk fulgte med på hver eneste lille endring i alle filer i ditt prosjekt, ville det bli tregt og tungvint. Det kan for eksempel være mange genererte filer som ikke er noe verdi i å lagre historikken til. I stedet har du kontrollen over hva Git skal være oppmerksom på, noe som gir deg frihet til å eksperimentere og utvikle uten bekymring.
+
+## Praktisk Eksempel med Java
+
+La oss illustrere dette konseptet med et eksempel fra Java-verdenen. Tenk at du jobber med en programmeringsoppgave og har skrevet en Java-klasse med navnet `Oblig1.java`. Etter å ha kodet og lagret filen, ligger den nå i din lokale arbeidsmappe, untracked av Git.
+
+Deretter kjører du kommandoen for å kompilere Java-koden din, og det genereres en `Oblig1.class`-fil - dette er den kjørbare bygget av din Java-klasse. Siden `.class`-filer kun er et produkt av kildene dine og kan enkelt regenereres, er de typisk filer vi ikke ønsker å spore med Git. De kan være store, og det å holde dem i Git ville være sløsing med plass, og dermed forblir de untracked.
+
+Dette viser et viktig valg når du arbeider med Git: å vite hva som skal spores, og hva som ikke skal. Når du er klar til å sikre dine fremganger med Oblig1.java, markerer du den som sporet ("tracked") ved å legge den til i Git, og dermed inviterer du Git til å følge med på fremtidige endringer.
+
+import SelectCorrect from '../../../components/SelectCorrect.astro';
+
+<SelectCorrect
+  question = "Hvilken av disse filtypene bør vanligvis bli sporet i et Java-prosjekt?"
+  correct = "Kildekodefiler (.java)"
+  wrong1 = "Kompileringsfiler (.class)"
+  wrong2 = "Readme (.md)"
+/>

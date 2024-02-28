@@ -10,13 +10,16 @@ sidebar:
   #  text: New
   #  variant: tip
 ---
+## Remote Repository: Lager Ditt Arbeid Trygt og Delbart
+Det fjerde og siste nivået i Git er remote repository. Dette er en versjonskontrollserver - som GitHub eller GitLab - hvor dine commits blir lagret eksternt og trygt. Dette ikke bare beskytter ditt arbeid mot lokale dataproblemer, men gjør også prosjektet ditt tilgjengelig for samarbeid, enten med kollegaer, medelever eller åpen kildekodefellesskapet!
 
-Remote repository-nivået er en ekstern server hvor filene er lagret som for eksempel GitHub. Dette betyr at filene er lagret på en ekstern server og kan hentes frem igjen senere. Når filene er lagret i en ekstern server er de i remote repository-nivået. Dette er nyttig for å kunne hente frem filene på en annen maskin. Dette er også nyttig for å kunne samarbeide med andre på prosjektet.
+## Hvordan utveksler vi endringer mellom lokalt og fjernlager?
+For å overføre dine lokale commits til det eksterne repositoryet bruker vi git push-kommandoen. Dette gir deg muligheten til å dele dine fremskritt og oppdateringer med verden. På motsatt side, dersom du trenger å hente oppdateringer fra det eksterne repositoryet til ditt lokale arbeidsområde, kan du bruke git pull-kommandoen. Dette er nyttig for å få de nye commits andre har lagt til, eller for å synkronisere arbeidet ditt mellom forskjellige datamaskiner.
 
-## Hvordan flytte endringer fra local til remote repository og tilbake?
+## Et Praktisk Eksempel
+Forestill deg at du har fullført et omfattende skolearbeid og er klar til å dele det med instruktøren din. Du har allerede laget dine commits lokalt. Nå bruker du kommandoen git push for å overføre commits til GitHub. Etter en stund, finner du ut om en liten feil du ønsker å fikse. Om du ikke er på den samme maskinen, kan du enkelt bruke git pull for å laste ned det nyeste arbeidet ditt, gjøre endringene, og deretter igjen git push for å oppdatere prosjektet på GitHub.
 
-For å flytte endringene fra local repository til remote repository bruker vi kommandoen `git push`. Denne kommandoen flytter endringene fra local repository til remote repository. For å hente endringene fra remote repository til local repository bruker vi kommandoen `git pull`. Denne kommandoen henter endringene fra remote repository til local repository.
 
-## Eksempel
+import SelectCorrect from '../../../components/SelectCorrect.astro';
 
-Du har nå gjort ferdig hele obligen på skolen og ønsker å laste opp filene til GitHub. Du bruker `git push` for å laste opp filene til GitHub. Senere skal du fikse en feil på obligen hjemme, så du bruker `git pull` for å hente filene fra GitHub til din lokale maskin.
+<SelectCorrect question="Hva blir hovedsakelig en fjernlagring ('remote repository') i Git brukt til?" correct="Sikkerhetskopiere koden og dele endringene med andre." wrong1="Lagre koden midlertidig mens du arbeider på den." wrong2="Hente kode fra Internet uten å dele egne enderiniger." />

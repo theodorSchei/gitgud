@@ -1,16 +1,27 @@
 ---
-title: "Lokalt repository"
+title: "Lokalt repository / Committed"
 sidebar:
   # Set a custom order for the link (lower numbers are displayed higher up)
   order: 4
 ---
 
-Etter at filene er lagt til i staging-nivået, kan endringene i filene lagres i git-historikken. Dette betyr at endringene i filene er lagret i git-historikken og kan hentes frem igjen senere. Når filene er lagret i git-historikken er de i local repository-nivået. Hver "endring" i git-historikken kalles en "commit". En commit er en "versjon" av prosjektet, og består av endringene som er lagret i git-historikken.
+## Fra Staging til Lokalt Repository: Sikre Dine Endringer
 
-## Hvordan lagre endringer til local repository-nivået?
+Når du har valgt filene og endringene du vil sikre i staging-nivået, er det på tide å lagre dem i prosjektets historie - dette er der lokalt repository-nivå eller "committed" trer inn. En "commit" er en registrert endring i git-historikken, og betraktes som en fast "versjon" eller øyeblikksfoto av prosjektet ditt på det tidspunktet.
 
-For å lagre endringer til det lokale repositoryet bruker vi kommandoen `git commit`. Denne kommandoen lagrer endringene i staging-nivået i git-historikken. Når endringene er lagret i git-historikken er de i local repository-nivået.
+## Hvordan lagre endringer i Lokalt Repository?
 
-## Eksempel
+For å permanent lagre dine staged endringer i det lokale repositoryet, anvender vi git commit-kommandoen. Denne prosessen tar dine organiserte endringer i staging og skaper en commit i git-historikken. Nå er arbeidet ditt trygt lagret og kan gjenopprettes, sammenlignes, eller deles som en del av prosjektets versionerte historie.
 
-Du har gjør en oblig i python. Du har blitt ferdig med første oppgave, og ønsker å lagre endingene som en første versjon av prosjektet. Du legger til filen `oblig1.py` i staging-nivået og lagrer endringene i git-historikken ved å bruke `git commit`.
+## Et Praktisk Eksempel
+
+La oss si at du jobber på en programmeringsoppgave i Python. Du har fullført den første oppgaven og er klar til å fange denne milepælen. Du legger `oblig1.py` til i staging og lager en commit med git commit. Du gir commiten en beskrivelse som fanger essensen av hva du har oppnådd, og bokfører den i prosjektets historie. Som et resultat, blir `oblig1.py` en del av git-historikken i ditt lokale repository, klargjort og pakket inn som en ryddig "versjon" av arbeidet ditt så langt.
+
+import SelectCorrect from '../../../components/SelectCorrect.astro';
+
+<SelectCorrect
+  question="Hva skjer når du lager en 'commit' i Git?"
+  correct="En ny 'versjon' av prosjektet med de staged endringene blir lagret i git-historikken."
+  wrong1="Endringene blir umiddelbart sendt til en fjernrepository."
+  wrong2="Endringene blir revert til en tidligere versjon av prosjektet."
+/>

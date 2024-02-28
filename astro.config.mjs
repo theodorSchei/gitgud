@@ -16,7 +16,7 @@ export default defineConfig({
 
       sidebar: [
         { label: 'Velkommen!', link: '/' },
-        { label: 'Git-nivåer', autogenerate: { directory: '/git-levels/' } },
+        { label: 'Git-stages', autogenerate: { directory: '/git-levels/' } },
         {
           label: 'Git-kommandoer',
           autogenerate: { directory: '/git-commands/' },
