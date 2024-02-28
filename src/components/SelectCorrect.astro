@@ -41,18 +41,22 @@ for (let i = answers.length - 1; i > 0; i--) {
     constructor() {
       super();
 
-      const buttons = this.querySelectorAll('button.option');
+      const buttons = this.querySelectorAll('button.option') as NodeListOf<HTMLButtonElement>;
+      if (buttons == undefined) return;
       const correctButton = this.dataset.correct;
-      const resetButton = this.querySelector('button.reset');
-      const revealButton = this.querySelector('button.reveal');
+      const resetButton = this.querySelector('button.reset') as HTMLButtonElement;
+      if (resetButton == undefined) return;
+      const revealButton = this.querySelector('button.reveal') as HTMLButtonElement;
+      if (revealButton == undefined) return;
 
       buttons.forEach((button) => {
         button.addEventListener('click', (event) => {
-          const isCorrect = event.target.textContent.trim() === correctButton;
+          const target = event.currentTarget as HTMLElement; // typecasting event.currentTarget til HTMLElement
+          const isCorrect = target.textContent?.trim() === correctButton;
           if (isCorrect) {
-						button.classList.add('correct')
+            button.classList.add('correct');
           } else {
-						button.classList.add('wrong')
+            button.classList.add('wrong');
           }
           buttons.forEach((btn) => (btn.disabled = true)); // Disable all buttons after answer
           revealButton.disabled = true; // Disable reveal answer after choice is made
@@ -69,7 +73,7 @@ for (let i = answers.length - 1; i > 0; i--) {
 
       revealButton.addEventListener('click', () => {
         buttons.forEach((btn) => {
-          const isCorrect = btn.textContent.trim() === correctButton;
+          const isCorrect = btn.textContent?.trim() === correctButton;
           btn.classList.add(isCorrect ? 'correct' : 'wrong'); // Add class based on whether the button is the correct answer
         });
       });
@@ -80,9 +84,9 @@ for (let i = answers.length - 1; i > 0; i--) {
 </script>
 
 <style>
-	h3 {
-		margin-top: 2rem;
-	}
+  h3 {
+    margin-top: 2rem;
+  }
   .correct {
     /* styles for correct answer */
     background-color: #538c55;
