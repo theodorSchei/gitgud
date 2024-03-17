@@ -39,6 +39,11 @@ export default defineConfig({
           lang: 'nb',
         },
       },
+
+      components: {
+        // Override the default `Head` component to add tracking.
+        SocialIcons: './src/components/TrackingHead.astro',
+      },
     }),
   ],
 });

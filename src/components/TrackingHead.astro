@@ -1,0 +1,19 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import Default from '@astrojs/starlight/components/Head.astro';
+---
+
+<Default {...Astro.props}><slot /></Default>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD4HLKED4P"></script>
+<script>
+  //@ts-ignore
+  window.dataLayer = window.dataLayer || [];
+  //@ts-ignore
+  function gtag(){dataLayer.push(arguments);}
+  //@ts-ignore
+  gtag('js', new Date());
+  //@ts-ignore
+  gtag('config', 'G-KD4HLKED4P');
+</script>
