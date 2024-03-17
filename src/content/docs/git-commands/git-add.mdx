@@ -13,3 +13,14 @@ Se for deg at du jobber med en oblig, og er ferdig med første oppgave. Du vil l
 ```bash
 git add oblig1.py
 ```
+
+## Test deg selv
+
+import SelectCorrect from '../../../components/SelectCorrect.astro';
+
+<SelectCorrect
+  question = "Hva gjør 'git add' kommandoen i Git?"
+  correct = "Den flytter filen med sine nåværende endringer til staging-området." 
+  wrong1 = "Den skaper en ny fil i Git repository."
+  wrong2 = "Den flytter alle endringene fra lokalt repository til eksternt repository."
+/>

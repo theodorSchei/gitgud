@@ -24,3 +24,12 @@ Changes to be committed:
 ```
 
 Her ser vi at det er 5 filer som er i staging-nivået (Under changes to be commited). Dette betyr at disse filene er lagt til i git, og endringene i filene vil bli lagret i git-historikken når vi bruker `git commit`.
+
+import SelectCorrect from '../../../components/SelectCorrect.astro';
+
+<SelectCorrect
+  question="Hva betyr det når filer vises under 'Changes to be committed' i git status-output?"
+  correct="Filer er staged og klare til å bli committet til repository-historikken."
+  wrong1="Filer er allerede committet og trygt lagret i git-historikken."
+  wrong2="Filer er usporet og endringene vil ikke være inkludert i neste commit."
+/>
