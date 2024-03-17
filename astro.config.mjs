@@ -7,12 +7,12 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
-  adapter: vercel({
-    webAnalytics: { enabled: true }
-  }),
-  integrations: [
 
-    
+  adapter: vercel({
+    webAnalytics: { enabled: true },
+  }),
+
+  integrations: [
     starlight({
       title: 'Velkommen til Git',
 
