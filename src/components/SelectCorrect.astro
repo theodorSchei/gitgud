@@ -34,6 +34,8 @@ for (let i = answers.length - 1; i > 0; i--) {
   </div>
 </select-correct>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD4HLKED4P"></script>
+
 <script>
   class Selection extends HTMLElement {
     constructor() {
@@ -54,8 +56,30 @@ for (let i = answers.length - 1; i > 0; i--) {
           const isCorrect = target.textContent?.trim() === correctButton;
           if (isCorrect) {
             button.classList.add('correct');
+            //@ts-ignore
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              //@ts-ignore
+              dataLayer.push(arguments);
+            }
+            //@ts-ignore
+            gtag('event', 'correct', {
+              event_category: 'Quiz',
+              event_label: 'Correct answer',
+            });
           } else {
             button.classList.add('wrong');
+            //@ts-ignore
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              //@ts-ignore
+              dataLayer.push(arguments);
+            }
+            //@ts-ignore
+            gtag('event', 'wrong', {
+              event_category: 'Quiz',
+              event_label: 'Correct answer',
+            });
           }
           buttons.forEach((btn) => (btn.disabled = true)); // Disable all buttons after answer
           revealButton.disabled = true; // Disable reveal answer after choice is made
