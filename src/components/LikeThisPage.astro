@@ -1,0 +1,76 @@
+---
+interface Props {}
+---
+
+<like-this-page>
+	<div class="row">
+  <span>Var denne siden nyttig?</span>
+  <button class="like">👍</button>
+  <button class="dislike">👎</button>
+	</div>
+</like-this-page>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD4HLKED4P"></script>
+
+<script>
+  class LikeThisPage extends HTMLElement {
+    constructor() {
+      super();
+
+      const likeButton = this.querySelector('button.like') as HTMLButtonElement;
+      if (likeButton == undefined) return;
+      const dislikeButton = this.querySelector('button.dislike') as HTMLButtonElement;
+      if (dislikeButton == undefined) return;
+
+      likeButton.addEventListener('click', () => {
+        //@ts-ignore
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          //@ts-ignore
+          dataLayer.push(arguments);
+        }
+        //@ts-ignore
+        gtag('event', 'like', {
+          event_category: 'Like',
+          event_label: 'Liked the page',
+        });
+      });
+
+      dislikeButton.addEventListener('click', () => {
+        //@ts-ignore
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          //@ts-ignore
+          dataLayer.push(arguments);
+        }
+        //@ts-ignore
+        gtag('event', 'dislike', {
+          event_category: 'Dislike',
+          event_label: 'Disliked the page',
+        });
+      });
+    }
+  }
+
+  customElements.define('like-this-page', LikeThisPage);
+</script>
+
+<style>
+	.row {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1.2rem;
+	}
+
+	button {
+		font-size: 1.2rem;
+		aspect-ratio: 1/1;
+		width: 2rem;
+		height: 2rem;
+		margin-top: 0 !important;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
