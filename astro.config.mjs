@@ -43,6 +43,9 @@ export default defineConfig({
       components: {
         // Override the default `Head` component to add tracking.
         SocialIcons: './src/components/TrackingHead.astro',
+
+        // Override the default `Footer` component to add cookie-info.
+        Footer: './src/components/CookieFooter.astro',
       },
     }),
   ],

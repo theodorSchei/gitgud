@@ -1,0 +1,25 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import Default from '@astrojs/starlight/components/Footer.astro';
+---
+
+<Default {...Astro.props}><slot /></Default>
+<div class="footer_bottom">
+  <a href="/cookies">Slik brukes informasjonskapsler</a>
+</div>
+
+<style>
+  .footer_bottom {
+    display: flex;
+    gap: 1rem;
+    border-top: 1px solid var(--sl-color-bg-nav);
+    /* background-color: var(--sl-color-bg-nav); */
+    width: 100%;
+    padding-top: 2rem;
+  }
+
+  .footer_bottom a {
+    color: var(--sl-color-text-primary);
+    text-decoration: underline;
+  }
+</style>
