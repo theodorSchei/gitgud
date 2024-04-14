@@ -5,6 +5,8 @@ sidebar:
   # Set a custom order for the link (lower numbers are displayed higher up)
   order: 0
 ---
+import Experience from '../../components/Experience.astro';
+import LikeThisPage from '../../components/LikeThisPage.astro';
 
 Bli kjent med Git: Et nøkkelverktøy i teknologiens verden
 
@@ -18,15 +20,5 @@ Denne tjenesten er designet for å ta deg trinnvis gjennom viktige Git-konsepter
 
 Bli med på denne reisen gjennom Git-verdenen og ta kontroll over din kodehistorikk. Det er en ferdighet du vil ha stor nytte av i din karriere, så la oss komme i gang!
 
-import SelectCorrect from '../../components/SelectCorrect.astro';
-
-<SelectCorrect
-  question="Det kommer noen spørsmål fremover, dette er kun så du kan teste deg selv. Er du klar?"
-  correct="Jeg er klar!"
-  wrong1="Ikke ennå.."
-  wrong2="Nei." 
-    />
-
-import LikeThisPage from '../../components/LikeThisPage.astro';
-
+<Experience />
 <LikeThisPage />

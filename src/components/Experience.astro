@@ -1,0 +1,106 @@
+---
+
+---
+
+<experience-question>
+	<h3>Forkunnskaper</h3>
+	<p>Hvordan er dine forkunnskaper i Git?</p>
+	<div class="answers">
+		<button class="option never-used-before">
+			<p>Aldri brukt før</p>
+		</button>
+		<button class="option used-a-little">
+			<p>Har testet litt</p>
+		</button>
+		<button class="option uses-actively">
+			<p>Bruker aktivt</p>
+		</button>
+	</div>
+</experience-question>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD4HLKED4P"></script>
+
+<script>
+	class ExperienceQuestion extends HTMLElement {
+		constructor() {
+			super();
+
+			//@ts-ignore
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				//@ts-ignore
+				dataLayer.push(arguments);
+			}
+
+			const buttons = Array.from(this.querySelectorAll('button.option')) as HTMLButtonElement[];
+			const neverUsedButton = this.querySelector('button.never-used-before') as HTMLButtonElement;
+			const usedALittleButton = this.querySelector('button.used-a-little') as HTMLButtonElement;
+			const usesActivelyButton = this.querySelector('button.uses-actively') as HTMLButtonElement;
+
+			if (!buttons || !neverUsedButton || !usedALittleButton || !usesActivelyButton) {
+				return;
+			}
+
+			function send_event(event_name: string) {
+				//@ts-ignore
+				gtag('event', event_name, {
+					event_category: 'experience',
+					event_label: event_name,
+				});
+
+				buttons.forEach((button) => {
+					button.disabled = true;
+				});
+			}
+
+			neverUsedButton.addEventListener('click', () => {
+				send_event('never-used-before');
+				neverUsedButton.classList.add('selected');
+			});
+
+			usedALittleButton.addEventListener('click', () => {
+				send_event('used-a-little');
+				usedALittleButton.classList.add('selected');
+			});
+
+			usesActivelyButton.addEventListener('click', () => {
+				send_event('uses-actively');
+				usesActivelyButton.classList.add('selected');
+			});
+		}
+	}
+
+	customElements.define('experience-question', ExperienceQuestion);
+</script>
+
+<style>
+	h3 {
+		margin-top: 2rem;
+	}
+
+	.answers {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr;
+		gap: 1rem;
+		row-gap: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.option {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 0rem !important;
+		padding: 1rem;
+	}
+
+	.selected {
+		color: 'sl-color-text-invert';
+		background-color: '--sl-color-bg-accent';
+	}
+
+	button {
+		border-radius: 0.5rem;
+	}
+</style>
