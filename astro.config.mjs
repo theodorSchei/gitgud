@@ -46,6 +46,9 @@ export default defineConfig({
 
         // Override the default `Footer` component to add cookie-info.
         Footer: './src/components/CookieFooter.astro',
+
+        // Override the default `Sidebar` component to add a custom sidebar with feedback form.
+        Sidebar: './src/components/FeedbackNavbar.astro',
       },
     }),
   ],
