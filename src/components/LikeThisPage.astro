@@ -3,11 +3,12 @@ interface Props {}
 ---
 
 <like-this-page>
-	<div class="row">
-  <span>Var denne siden nyttig?</span>
-  <button class="like">👍</button>
-  <button class="dislike">👎</button>
-	</div>
+  <div class="row">
+    <span>Var denne siden nyttig?</span>
+    <button class="like">👍</button>
+    <button class="dislike">👎</button>
+  </div>
+  <p class="thanks" hidden="true">Takk for tilbakemelding!</p>
 </like-this-page>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KD4HLKED4P"></script>
@@ -21,6 +22,15 @@ interface Props {}
       if (likeButton == undefined) return;
       const dislikeButton = this.querySelector('button.dislike') as HTMLButtonElement;
       if (dislikeButton == undefined) return;
+      const thanksMessage = this.querySelector('p.thanks') as HTMLParagraphElement;
+      if (thanksMessage == undefined) return;
+
+      function disableButtons() {
+        likeButton.disabled = true;
+        dislikeButton.disabled = true;
+
+        thanksMessage.hidden = false;
+      }
 
       likeButton.addEventListener('click', () => {
         //@ts-ignore
@@ -34,6 +44,8 @@ interface Props {}
           event_category: 'Like',
           event_label: 'Liked the page',
         });
+
+        disableButtons();
       });
 
       dislikeButton.addEventListener('click', () => {
@@ -48,6 +60,8 @@ interface Props {}
           event_category: 'Dislike',
           event_label: 'Disliked the page',
         });
+
+        disableButtons();
       });
     }
   }
@@ -56,21 +70,25 @@ interface Props {}
 </script>
 
 <style>
-	.row {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 1.2rem;
-	}
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+  }
 
-	button {
-		font-size: 1.2rem;
-		aspect-ratio: 1/1;
-		width: 2rem;
-		height: 2rem;
-		margin-top: 0 !important;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+  button {
+    font-size: 1.2rem;
+    aspect-ratio: 1/1;
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .thanks {
+    text-align: center;
+  }
 </style>
