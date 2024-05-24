@@ -5,16 +5,15 @@ sidebar:
   order: 3
 ---
 
-## Forstå Staging: Forbered Endringene Dine for Historikken
+## Forstå Staging: Hvilke endringer skal med i historikken?
 
-Når du har bedt Git om å bli kjent med dine filer, ankommer du neste nivå - staging. Staging-nivået er stedet hvor du organiserer og sørger for at kun ønskede endringer blir del av den neste "commiten", eller sagt på en annen måte, en ny versjon i prosjektets historikk. På dette nivået kan du finjustere hva som blir lagt til din Git-historikk og sørge for at kun viktige endringer telle.
+Når du har bedt Git om å følge med på filene, kommer du til neste nivå - staging. Staging-nivået er stedet hvor du organiserer og sørger for at kun ønskede endringer blir del av den neste "commiten", eller sagt på en annen måte, en ny versjon i prosjektets historikk. På dette nivået kan du finjustere hva som blir lagt til din Git-historikk.
 ## Hvordan legger vi til filer i Staging?
 
-For å gi en fil klarering til dem neste historiske trinnet i Git, bruker vi git add-kommandoen. Den gir beskjed til Git om å inkludere endringene i disse filene når du er klar for å ta det neste steget. Dette er som en siste sjekk før du endelig bekrefter dem.
-Et Praktisk Eksempel
+For å gi en fil klarering til dem neste historiske trinnet i Git, bruker vi git add-kommandoen. Den gir beskjed til Git om å inkludere endringene i disse filene når du er klar for å lagre en ny "versjon" i historikken. 
 
 ## Se for deg dette:
-Du har jobbet hardt med din skole-oblig `oblig1.py` og er fornøyd med progresjonen. Ved siden av det, har du eksperimentert med noe i en annen fil kalt `test.py`, men det var kun for å prøve noe ut. Du vil ikke at dine kortvarige tester skal bli med i prosjetets git-historie. Så, du velger å kun legge til `oblig1.py` i staging ved å bruke `git add oblig1.py` og etterlater `test.py` i usporert tilstand. På denne måten, når du bekrefter endringene, representerer "commiten" kun det seriøse arbeidet du har lagt ned i oblig1.py.
+Du har jobbet hardt med din skole-oblig `oblig1.py` og er fornøyd med progresjonen. Ved siden av det, har du eksperimentert med noe i en annen fil kalt `test.py`, men det var kun for å prøve noe ut. Du vil ikke at dine kortvarige tester skal bli med i prosjetets git-historie. Så, du velger å kun legge til `oblig1.py` i staging ved å bruke `git add oblig1.py` og etterlater `test.py` i usporet tilstand (untracked). På denne måten, når du bekrefter endringene så havner kun det seriøse arbeidet ditt i `oblig1.py` i Git-historikken.
 
 import SelectCorrect from '../../../components/SelectCorrect.astro';
 
