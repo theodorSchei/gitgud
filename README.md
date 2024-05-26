@@ -79,8 +79,8 @@ Importering av komponenter ser veldig likt ut som det gjør i JavaScript. Man ka
 ```js
 <SelectCorrect
   question = "Hva gjør 'git add' kommandoen i Git?"
-  correct = "Den flytter filen med sine nåværende endringer til staging-området." 
-  wrong1 = "Den skaper en ny fil i Git repository."
+  correct = "Den legger filen i staging-området." 
+  wrong1 = "Den lager en ny fil i Git repository."
   wrong2 = "Den flytter alle endringene fra lokalt repository til eksternt repository."
 />
 ```
