@@ -103,4 +103,4 @@ Alle kommandoer kjøres fra roten i prosjektet, i terminal:
 
 ## 👀 Vil du lære mer om astro?
 
-Sjekk ut [documentasjonen](https://docs.astro.build), den er dødsbra!
+Sjekk ut [dokumentasjonen](https://docs.astro.build), den er dødsbra!
